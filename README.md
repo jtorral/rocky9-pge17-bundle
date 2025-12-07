@@ -54,16 +54,17 @@ https://github.com/jtorral/rocky9-pg17-bundle
 
 The EDB distributions require a subscription in order to download from the repository. With that being said, you should have an access token in order to access the repository. You will need this access token as part of your docker build command.
 
+**You will need your access token to run the build command.**
+
 For example, to build the docker image on regular **x86 system** you would run your docker build command as follows:
 
     docker build --build-arg MYTOKEN="your_access_toke_here" --progress=plain -t rocky9-pge17-bundle .
 
 The above flag **`--progress=plain`** will help identify any issues by providing more details during the docker build process
 
-### DISREGARD ARM build below . That is still in the works for this  doc
-For the **ARM based system** build the image using these options
+For the **ARM based system** build the image using these options. Don't forget the dot at the end.
 
-    docker build -f DockerFileArm --progress=plain --build-arg TARGETARCH=aarch64 -t rocky9-pg17-bundle-arm .
+    docker build -f DockerfileArm --progress=plain  --build-arg TARGETARCH=aarch64 --build-arg MYTOKEN="your_access_token_here" -t rocky9-pge17-bundle-arm .
 
 In the above command we ( Optionally change the image name to **rocky9-pg17-bundle-arm** but you could leave it as **rocky9-pg17-bundle** if you like.
 
