@@ -37,6 +37,9 @@ RUN dnf install -y libssh2 pgbackrest pgbouncer patroni-etcd \
     pg_repack_17 pg_top pg_activity haproxy \
     && dnf clean all && rm -rf /var/cache/dnf
 
+#RUN dnf install -y libssh2 pgbackrest edb-pgbouncer123 patroni-etcd \
+    #pg_repack_17 pg_top pg_activity haproxy \
+    #&& dnf clean all && rm -rf /var/cache/dnf
 
 # --- Install PGPool ---
 
