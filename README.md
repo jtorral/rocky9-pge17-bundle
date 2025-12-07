@@ -79,10 +79,29 @@ Some default file locations and environment setting shave change from the commun
 
 For example ...
 
-postgres bin directory is now  
+postgres bin directory for the EDB distribution is:
 
-PGBIN="/usr/edb/pge17/bin"
-PGHOST=/var/run/edb-pge
+    /usr/edb/pge17/bin
+
+The socket dir for postgres is now 
+
+    /var/run/edb-pge
+
+These changes affect how you connect to the database.  Having saud that, make sure you either
+
+    export PGHOST=/var/run/edb-pge
+
+or 
+
+Run psql locally as 
+
+    psql -h /var/run/edb-pge
+
+If you export PGHOST as noted above, a simple psql will connect you.
+
+Or you can connect to local host as well
+
+    psql -h 127.0.0.1
 
 
 You can then run the [genDeploy](https://github.com/jtorral/rocky9-pg17-bundle/blob/main/genDeploy.md) script included in this repo.
@@ -196,4 +215,9 @@ Type "help" for help.
 
 postgres=#
 ```
+
+
+
+
+
 
